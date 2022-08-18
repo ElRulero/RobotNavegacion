@@ -1,38 +1,37 @@
-# RobotNavegacion
-Simulación de un Turtlebot navegando por calles con señales simuladas con números
+# Robot Navegation
+Simulation of an autonomous algorithm that navegates around the streets. The simulation uses a turtlebot and the traffic signals are emulated with numbers. The turtlebot has a vision algorithm that detects the numbers and decide its actions.
 
 ---------- FOLLOWBOT -------------------
 
-Este robot detectará y seguirá las lineas amarillas que encuentre en el suelo.
+This robot will detect and follow yellow lines painted on the ground
  
-Puede ser ejecutado utilizando el world course que viene incluido en la carpeta o utilizar el mapa autorace.launch 
-del paquete del turtlebot3_gazebo, que también dispone de una línea amarilla.
+ This can be executed using the map world course inside the folder or using the autorace.launch map from gazebo.
 
-Para ejecutar el algoritmo de detección y seguimiento, utilizar el comando:
+To execute the number detection algorithm, use this command:
   python follower.py
-dentro de la carpeta follower una vez lanzado el gazebo con el mapa.
+ inside the follower folder once Gazebo is launched.
 
 ------------ MAPA -------------------
 
-Esta carpeta contiene el mapa utilizado para el robot navegacion
+This folder contains the map used by the robot.
 
 ----------ROBOT_NAVEGACION---------------
 
-Este robot circulará por un escenario simulado en el que habrán números que simulen señales de tráfico, que el robot respetará.
+This robot will drive around a simulated scenario where there will numbers emulating traffic signals.
 
-Para ejecutar estos paquetes:
+To execute this packages:
 
-instalar los programas necesarios dentro de requirements.txt utilizando el comando:
+Install the required programs inside requirements.txt this way:
   pip install -r requirements.txt
-Para poder ejecutar este comando, se debe tener pip instalado previamente.
+In order to execute this command, you'll need to have pip previously installed.
 
-Una vez instalar los paquetes necesarios, dentro de la carpeta Robot_navegacion se encuentran 3 ficheros de python:
+Once required packages are installed, inside Robot_navegacion folder, you'll find 3 Python scripts:
 
-  - deteccion_color.py --> Este código realiza la deteccion y umbralización del color azul en HSV.
-  - deteccion_numeros.py --> Este código realiza la detección y clasificación de los números del mapa.
-  - navegacion.py --> Este código combina los dos anteriores junto a una máquina de estados para realizar la nacegación por el mapa.
+  - deteccion_color.py --> This code detects and umbralises blue color in HSV.
+  - deteccion_numeros.py --> This code detects and classifies the numbers in the map.
+  - navegacion.py --> This code combines the previous 2 with a state machine in order to do the navegation.
 
-Para lanzar cualquiera de los 3 anteriores códigos, primero se debe lanzar el mapa en gazebo, utilizando el siguiente comando
+To launch this 3 codes, first you have to launch the map on Gazebo, using the next command:
   roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=(ruta al mapa)/mapa
-Una vez lanzado el entorno, y dentro de la carpeta Robot_navegacion, podemos lanzar cualquiera de los algoritmos anteriores utilizando:
+Once the invironment is launched, we are able to launch any of the previous scripts using:
   python (nombre fichero.py)
